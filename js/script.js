@@ -83,6 +83,40 @@ window.addEventListener("DOMContentLoaded", function(){
   }
 setClock(".timer",deadline)
   // timer logic end
+
+
+  // modal loggic start 
+const modalTrigger = document.querySelectorAll("[data-modal]");
+const modal = document.querySelector(".modal");
+const modalClose = document.querySelector("[data-close]");
+
+function openModal(){
+  modal.classList.add("show");
+    modal.classList.remove("hide");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  modal.classList.add("hide");
+    modal.classList.remove("show");
+    document.body.removeAttribute("style");}
+
+modalTrigger.forEach(btn => btn.addEventListener("click", openModal))
+ modalClose.addEventListener("click", closeModal)   
+  
+modal.addEventListener("click", (e)=>{
+  if (e.target && e.target === modal){
+    modal.classList.add("hide");
+    modal.classList.remove("show");
+    document.body.removeAttribute("style");
+  }
+  
+})
+
+
+  
+
+  // modal logic end
 });
 
 
